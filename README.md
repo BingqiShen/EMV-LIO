@@ -3,6 +3,8 @@
 
 **EMV-LIO** is an Efficient Multiple vision aided LiDAR-inertial odometry system based on **LVI-SAM**, which introduces multiple cameras in the VIO subsystem to expand the range of visual observation to guarantee the whole system can still maintain the relatively high accuracy in case of the failure of the monocular visual observation. Apart from this, an efficiency-enhanced LVIO system is also introduced to increase the system’s efficiency, including removing LiDAR’s noise via range image, setting condition for nearest neighbor search, and replacing kd-Tree with ikd-Tree. 
 
+---
+
 ## 1. Prerequisites
 
 ### 1.1 **Ubuntu** and **ROS**
@@ -25,12 +27,13 @@ Follow [Ceres Installation](http://ceres-solver.org/installation.html).
 
 ### 1.3. **GTSAM**
 
+Install the dependencies
 ```
 sudo apt-get install libboost-all-dev
 sudo apt-get install cmake
 sudo apt-get install libtbb-dev
 ```
-
+Compile the GTSAM's code 
 ```
 git clone https://bitbucket.org/gtborg/gtsam.git
 cd gtsam/
@@ -40,7 +43,22 @@ make check
 sudo make install 
 ```
 
+---
+
+## 2. Compile
+You can use the following commands to download and compile the package.
+
+```
+cd ~/emv_ws/src
+git clone https://github.com/BingqiShen/EMV-LIO.git
+cd ..
+catkin_make -j4
+```
+
+---
 
 Our implementation will be available upon acceptance
 
-![image](https://github.com/thinking-08/EMV-LIO/blob/main/demo.gif)
+<p align='center'>
+    <img src="./demo.gif" alt="drawing" width="800"/>
+</p>
