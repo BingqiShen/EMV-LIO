@@ -63,3 +63,9 @@ catkin_make -j4
 
 ---
 
+## 3. Run our examples
+
+
+### 3.1 Download our rosbag files
+
+The datasets used in the paper can be downloaded from Google Drive. The data-gathering sensor suite includes: HESAI PandarXT-32 LiDAR, DAHENG MER2-202 camera, and Xsens MTi-300 IMU.
