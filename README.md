@@ -73,3 +73,26 @@ catkin_make -j4
 </p>
 
 The datasets used in the paper can be downloaded from Google Drive. The data-gathering sensor suite includes: HESAI PandarXT-32 LiDAR, DAHENG MER2-202 camera, and Xsens MTi-300 IMU.
+
+### 3.2 Run the package
+
+1. Configure parameters:
+
+```
+Configure sensor parameters in the .yaml files in the ```config``` folder.
+```
+
+2. Run the launch file:
+```
+roslaunch emv_lio run.launch
+```
+
+3. Play existing bag files:
+```
+rosbag play jz.bag 
+```
+
+---
+
+## 4. Acknowledgement
+Our repository mainly develops from [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM), where the visual-inertial odometry module is adapted from [Vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) and the lidar-inertial odometry module is adapted from [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/tree/a246c960e3fca52b989abf888c8cf1fae25b7c25). Besides, our implementation also use the codes of [ikd-Tree](https://github.com/hku-mars/ikd-Tree) and [M-LOAM](https://github.com/gogojjh/M-LOAM).
