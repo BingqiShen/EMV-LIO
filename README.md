@@ -72,9 +72,9 @@ catkin_make -j4
     <img src="./device.png" alt="drawing" width="400"/>
 </p>
 
-The datasets used in the paper can be downloaded from Google Drive. The data-gathering sensor suite includes: HESAI PandarXT-32 LiDAR, DAHENG MER2-202 camera, and Xsens MTi-300 IMU.
+The datasets used in the paper can be downloaded from Baidu Drive. The data-gathering sensor suite includes: HESAI PandarXT-32 LiDAR, DAHENG MER2-202 camera, and Xsens MTi-300 IMU.
 
-···
+```
 url：https://pan.baidu.com/s/1QjQzn1ZwN1SHqHPghYN2tw 
 
 code：sreu 
@@ -89,6 +89,7 @@ Configure sensor parameters in the .yaml files in the ```config``` folder.
 ```
 
 2. Run the launch file:
+
 ```
 roslaunch emv_lio run.launch
 ```
