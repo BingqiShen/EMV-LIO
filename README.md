@@ -96,7 +96,7 @@ roslaunch emv_lio run.launch
 
 3. Play existing bag files:
 ```
-rosbag play jz.bag 
+rosbag play iplus.bag 
 ```
 
 ---
