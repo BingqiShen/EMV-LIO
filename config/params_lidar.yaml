@@ -1,0 +1,86 @@
+# project name
+PROJECT_NAME: "emv_lio"
+
+emv_lio:
+
+  # Topics
+  pointCloudTopic: "/hesai/pandar"               # Point cloud data
+  imuTopic: "/imu_data"                         # IMU data
+
+  # Heading
+  useImuHeadingInitialization: true          # if using GPS data, set to "true"
+  
+  # Export settings
+  savePCD: false                              # https://github.com/TixiaoShan/LIO-SAM/issues/3
+  savePCDDirectory: "/Downloads/LOAM/"        # in your home folder, starts and ends with "/". Warning: the code deletes "LOAM" folder then recreates it. See "mapOptimization" for implementation
+
+  # lidar Settings
+  N_SCAN: 32                                  # number of lidar channel (i.e., 16, 32, 64, 128)
+  Horizon_SCAN: 2000                          # lidar horizontal resolution (Velodyne:1800, Ouster:512,1024,2048)
+  ang_res_y: 1.0                              # vertical resolution of lidar
+  lidar_type: 2                               # 1 for ouster, 2 for hesai, 3 for velodyne
+  timeField: "timestamp"                      # point timestamp field, Velodyne - "time", Ouster - "t", hesai - "timestamp"
+  downsampleRate: 2                           # default: 1. Downsample your data if too many points. i.e., 16 = 64 / 4, 16 = 16 / 1 
+  lidarMaxRange: 50.0
+  lidarMinRange: 0.5
+  NUM_OF_CAM: 2
+  feature_enable: 0
+  remove_noise: 0
+
+  # noise removal setting
+  min_cluster_size: 10
+  segment_valid_point_num: 5
+  segment_valid_line_num: 3
+
+  # IMU Settings
+  imuAccNoise: 0.03015059
+  imuGyrNoise: 0.42306179
+  imuAccBiasN: 0.00198931
+  imuGyrBiasN: 0.00015932
+  imuGravity: 9.80
+  
+  # Extrinsics (lidar -> IMU)
+  extrinsicTrans: [-0.0204, 0.0175, 0.0642]
+  extrinsicRot: [-0.9741, 0.2262, 0.0008, -0.2261, -0.9740, 0.0147, 0.0041, 0.0141, 0.9999]
+  #extrinsicTrans: [-0.0162, 0.0207, -0.0644]
+  #extrinsicRot: [-0.9741, -0.2262, 0.0041, 0.2261, -0.9740, 0.0141, 0.0008, 0.0147, 0.9999]
+  # extrinsicRPY: [0, 1, 0, -1, 0, 0, 0, 0, 1]
+  extrinsicRPY: [0, -1, 0, -1, 0, 0, 0, 0, -1]
+  # LOAM feature threshold
+  edgeThreshold: 1.0
+  surfThreshold: 0.1
+  edgeFeatureMinValidNum: -1
+  surfFeatureMinValidNum: 100
+
+  # voxel filter paprams
+  odometrySurfLeafSize: 0.4                     # default: 0.4
+  mappingCornerLeafSize: 0.2                    # default: 0.2
+  mappingSurfLeafSize: 0.4                      # default: 0.4
+
+  # robot motion constraint (in case you are using a 2D robot)
+  z_tollerance: 1000        # meters
+  rotation_tollerance: 1000 # radians
+
+  # CPU Params
+  numberOfCores: 4                              # number of cores for mapping optimization
+  mappingProcessInterval: 0.05                   # seconds, regulate mapping frequency
+
+  # Surrounding map
+  surroundingkeyframeAddingDistThreshold: 1.0   # meters, regulate keyframe adding threshold
+  surroundingkeyframeAddingAngleThreshold: 0.2  # radians, regulate keyframe adding threshold
+  surroundingKeyframeDensity: 2.0               # meters, downsample surrounding keyframe poses   
+  surroundingKeyframeSearchRadius: 50.0         # meters, within n meters scan-to-map optimization (when loop closure disabled)
+
+  # Loop closure
+  loopClosureEnableFlag: False
+  surroundingKeyframeSize: 25                   # submap size (when loop closure enabled)
+  historyKeyframeSearchRadius: 20.0             # meters, key frame that is within n meters from current pose will be considerd for loop closure
+  historyKeyframeSearchTimeDiff: 30.0           # seconds, key frame that is n seconds older will be considered for loop closure
+  historyKeyframeSearchNum: 25                  # number of hostory key frames will be fused into a submap for loop closure
+  historyKeyframeFitnessScore: 0.3              # icp threshold, the smaller the better alignment
+
+  # Visualization
+  globalMapVisualizationSearchRadius: 1000.0    # meters, global map visualization radius
+  globalMapVisualizationPoseDensity: 10.0       # meters, global map visualization keyframe density
+  globalMapVisualizationLeafSize: 1.0           # meters, global map visualization cloud density
+

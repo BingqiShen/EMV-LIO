@@ -6,7 +6,7 @@
 Our implementation will be available upon acceptance
 
 <p align='center'>
-    <img src="./demo.gif" alt="drawing" width="800"/>
+    <img src="./doc/demo.gif" alt="drawing" width="800"/>
 </p>
 
 ---
@@ -69,7 +69,7 @@ catkin_make -j4
 ### 3.1 Download our rosbag files
 
 <p align='center'>
-    <img src="./device.png" alt="drawing" width="400"/>
+    <img src="./doc/device.png" alt="drawing" width="400"/>
 </p>
 
 The datasets used in the paper can be downloaded from Baidu Drive. The data-gathering sensor suite includes: HESAI PandarXT-32 LiDAR, DAHENG MER2-202 camera, and Xsens MTi-300 IMU.
@@ -86,6 +86,8 @@ code：sreu
 
 ```
 Configure sensor parameters in the .yaml files in the ```config``` folder.
+
+You can select the number of camera used by change NUM_OF_CAM in params_lidar.yaml
 ```
 
 2. Run the launch file:
@@ -102,4 +104,4 @@ rosbag play iplus.bag
 ---
 
 ## 4. Acknowledgement
-Our repository mainly develops from [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM), where the visual-inertial odometry module is adapted from [Vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) and the lidar-inertial odometry module is adapted from [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/tree/a246c960e3fca52b989abf888c8cf1fae25b7c25). Besides, our implementation also use the codes of [ikd-Tree](https://github.com/hku-mars/ikd-Tree) and [M-LOAM](https://github.com/gogojjh/M-LOAM).
+Our repository mainly develops from [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM), where the visual-inertial odometry module is adapted from [Vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) and the lidar-inertial odometry module is adapted from [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/tree/a246c960e3fca52b989abf888c8cf1fae25b7c25). Besides, our implementation also use the codes of [ikd-Tree](https://github.com/hku-mars/ikd-Tree), [M-LOAM](https://github.com/gogojjh/M-LOAM), and [Cartographer](https://github.com/cartographer-project/cartographer).
