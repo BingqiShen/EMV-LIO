@@ -1,4 +1,9 @@
 # EMV-LIO
+
+[![arXiv](https://img.shields.io/badge/arXiv-2302.00216-b31b1b.svg)](https://arxiv.org/abs/2302.00216)
+[![pdf](https://img.shields.io/badge/pdf-2302.00216-00ff00.svg)](https://arxiv.org/pdf/2302.00216.pdf)
+
+
 ## An Efficient Multiple Vision aided LiDAR-Inertial Odometry
 
 **EMV-LIO** is an Efficient Multiple vision aided LiDAR-inertial odometry system based on **LVI-SAM**, which introduces multiple cameras in the VIO subsystem to expand the range of visual observation to guarantee the whole system can still maintain the relatively high accuracy in case of the failure of the monocular visual observation. Apart from this, an efficiency-enhanced LVIO system is also introduced to increase the system’s efficiency, including removing LiDAR’s noise via range image, setting condition for nearest neighbor search, and replacing kd-Tree with ikd-Tree. 
